@@ -1,0 +1,162 @@
+@import "vars";
+@import "mixins";
+
+nav{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 1.5em;
+}
+	
+	#nav-inner{
+		width: 100%;
+		max-width: $maxwide;
+		margin: 0 auto;
+		padding: 0 10%;
+		display: table;
+
+		img{
+			height: $navheight;
+			display: block;
+			float: left;
+			-webkit-filter: drop-shadow(0px 2px 2px $black);
+			filter: drop-shadow(0 0 .5em $black);
+			cursor: pointer;
+		}
+	}
+
+		#nav-title{
+			height: $navheight;
+			display: table;
+			float: left;
+			margin-left: $navheight / 2;
+			cursor: pointer;
+		}
+
+			#nav-title-align{
+				width: 100%;
+				height: 100%;
+				display: table-cell;
+				vertical-align: middle;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: $white;
+				@include texthaze($black);
+
+				em{
+					text-transform: lowercase;
+					font-variant: small-caps;
+				}
+			}
+
+		#nav-links{
+			height: $navheight;
+			float: right;
+			display: table;
+		}
+
+			#nav-links-align{
+				width: 100%;
+				height: 100%;
+				display: table-cell;
+				vertical-align: middle;
+				color: $white;
+				@include texthaze($black);
+
+				span{
+					padding: .5em 0;
+					margin-right: 2em;
+					cursor: pointer;
+
+					&:hover{
+						color: $red;
+						@include fader;
+					}
+				}
+
+				span:nth-child(4){
+					border: 1px solid $white;
+					margin-right: .25em;
+
+					&:hover{
+						background-color: $white;
+						color: $black;
+						@include fader;
+					}
+				}
+
+				span:last-of-type{
+					margin-right: 0;
+					background-color: $red;
+					border: 1px solid $red;
+					@include vertical_gradient(red);
+
+					&:hover{
+						color: $white;
+					}
+				}
+
+				span:nth-child(4),
+				span:last-of-type{
+					padding-left: 1em;
+					padding-right: 1em;	
+					@include rounded(.5em);
+					@include texthaze(transparent);
+				}
+			}
+
+#mobilenav{
+	display: none;
+	width: 100%;
+	background-color: $black;
+	margin-bottom: 0;
+}
+
+	#mobilenav-left{
+		float: left;
+		background-color: $red;
+		color: $white;
+		@include texthaze(darken($red, 5%));
+		padding: 1em;
+		line-height: 1;
+		font-family: 'hl';
+		position: relative;
+
+		&::after{
+			content: "";
+			position: absolute;
+			right: -5px;
+			top: 0;
+			bottom: 0;
+			border-left: 5px solid $white;
+		}
+	}
+
+	#mobilenav-right{
+		float: right;
+		margin-top: 1.25em;
+		margin-right: 1em;
+		
+		span{
+			padding: .25em .5em;
+			color: $white;
+			@include rounded(.5em);
+			font-weight: bold;
+		}
+
+		span:first-of-type{
+			border: 1px solid $white;
+			margin-right: .25em;
+		}
+
+		span:last-of-type{
+			border: 1px solid $red;
+			background-color: $red;
+			@include vertical_gradient(darken($red, 5%));
+		}
+	}
+
+
+
+
+
